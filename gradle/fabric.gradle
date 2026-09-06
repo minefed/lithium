@@ -1,7 +1,7 @@
 apply plugin: "fabric-loom"
 
 processResources {
-    inputs.property "version", project.version
+    inputs.property "version", providers.provider { project.version.toString() }
 
     filesMatching("fabric.mod.json") {
         expand "version": project.version
